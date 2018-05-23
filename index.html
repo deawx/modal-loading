@@ -1,0 +1,253 @@
+<!-- 
+ * Modal Loading Library Demo
+ * author  c
+ * date    2017-11-05
+ -->
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta http-equiv="Content-Type" content="text-html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>Loading - Modal</title>
+		<link rel="stylesheet" type="text/css" href="css/modal-loading.css" />
+		<link rel="stylesheet" type="text/css" href="css/modal-loading-animate.css" />
+		<style type="text/css">
+
+			html { font-size: 10px; }
+
+			body {
+				width:  520px; 
+				height: 100%;
+				margin: 2% auto;
+			}
+
+			a {
+				padding: 5px 20px;
+				font-size: 1.4rem;
+				color: #FFF;
+				text-decoration: none;
+			    -webkit-border-radius: 4px;
+			    -moz-border-radius: 4px;
+			    border-radius: 4px;
+			    margin: 8px 0;
+			    display: inline-block;
+			}
+
+			a.btn1 {
+				background: rgb(33, 179, 132);
+			}
+			a.btn2 {
+				background: rgb(255, 189, 122);
+			}
+			a.btn3 {
+				background: rgb(77, 150, 223);
+			}
+			a.btn4 {
+				background: rgb(217, 83, 79);
+			}
+
+		</style>
+	</head>
+	<body>
+
+		<a href="javascript:;" class="btn1" onclick="normal();">默认效果</a>
+		<a href="javascript:;" class="btn2" onclick="verticalTextColor();">纵向 文字颜色</a>
+		<a href="javascript:;" class="btn2" onclick="verticalNoTitle();">纵向 无标题</a>
+		<a href="javascript:;" class="btn2" onclick="verticalNoTitleAnddiscription();">纵向 无标题 无描述</a>
+		<a href="javascript:;" class="btn2" onclick="verticalBgColor();">纵向 背景色</a>
+		<a href="javascript:;" class="btn2" onclick="verticalImageLoadingAnimation();">纵向 图片加载动画</a>
+		<a href="javascript:;" class="btn3" onclick="horizontalNormal();">横向 默认效果</a>
+		<a href="javascript:;" class="btn3" onclick="horizontalCustomStyle();">横向 自定义样式</a>
+		<a href="javascript:;" class="btn3" onclick="horizontalNoTitle();">横向 无标题</a>
+		<a href="javascript:;" class="btn4" onclick="noTransitionAnimation();">无过度动画</a>
+
+		<!-- 引入jQuery官方类库 微软CDN加速 -->
+		<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/modal-loading.js"></script>
+		<script type="text/javascript">
+
+			function loadingOut(loading) {
+				setTimeout(() => loading.out(), 3000);
+			}
+
+			/**
+			 * 默认效果
+			 * @author 	c
+			 * @date 	2017-11-05
+			 * @version 1.0.0
+			 * @return {void} 
+			 */
+			function normal() {
+				var loading = new Loading();
+
+				loadingOut(loading);
+			}
+
+			/**
+			 * 纵向 文字颜色
+			 * @author 	c
+			 * @date 	2017-11-05
+			 * @version 1.0.0
+			 * @return {void} 
+			 */
+			function verticalTextColor() {
+				var loading = new Loading({
+					title: 					'请稍等',
+					titleColor: 			'rgb(217, 83, 79)',
+					discription: 			'正在加载中...',
+					discriptionColor: 		'rgb(77, 150, 223)',
+					animationOriginColor: 	'rgb(33, 179, 132)',
+					mask: 					false,
+					loadingPadding: 		'20px 50px',
+			    	defaultApply: 	true,
+				});
+
+				loadingOut(loading);
+			}
+
+			/**
+			 * 纵向 无标题
+			 * @author 	c
+			 * @date 	2017-11-05
+			 * @version 1.0.0
+			 * @return {void} 
+			 */
+			function verticalNoTitle() {
+				var loading = new Loading({
+					discription: 			'正在加载中...',
+			    	defaultApply: 	true,
+				});
+
+				loadingOut(loading);
+			}
+
+			/**
+			 * 纵向 无标题 无描述
+			 * @author 	c
+			 * @date 	2017-11-05
+			 * @version 1.0.0
+			 * @return {void} 
+			 */
+			function verticalNoTitleAnddiscription() {
+
+				var loading = new Loading({
+					animationOriginColor: 	'rgb(217, 83, 79)',
+			    	defaultApply: 	true,
+				});
+
+				loadingOut(loading);
+			}
+
+			/**
+			 * 纵向 背景色
+			 * @author 	c
+			 * @date 	2017-11-05
+			 * @version 1.0.0
+			 * @return {void} 
+			 */
+			function verticalBgColor() {
+
+				var loading = new Loading({
+					loadingBgColor: 	'rgb(77, 150, 223)',
+			    	defaultApply: 	true,
+				});
+
+				loadingOut(loading);
+			}
+
+			/**
+			 * 纵向 图片加载动画
+			 * @author 	c
+			 * @date 	2017-11-05
+			 * @version 1.0.0
+			 * @return {void} 
+			 */
+			function verticalImageLoadingAnimation() {
+
+				var loading = new Loading({
+					loadingAnimation: 		'image',
+					animationSrc: 			'http://img.lanrentuku.com/img/allimg/1212/5-121204194028.gif',
+			    	defaultApply: 	true,
+				});
+
+				loadingOut(loading);
+			}
+
+			/**
+			 * 横向 默认效果
+			 * @author 	c
+			 * @date 	2017-11-05
+			 * @version 1.0.0
+			 * @return {void} 
+			 */
+			function horizontalNormal() {
+				
+				var loading = new Loading({
+					direction: 'hor',
+			    	defaultApply: 	true,
+				});
+
+				loadingOut(loading);
+			}
+
+			/**
+			 * 横向 自定义样式
+			 * @author 	c
+			 * @date 	2017-11-05
+			 * @version 1.0.0
+			 * @return {void} 
+			 */
+			function horizontalCustomStyle() {
+
+				var loading = new Loading({
+					title: ' 标题',
+					direction: 'hor',
+					discription: '努力加载中...',
+			    	defaultApply: 	true,
+				});
+
+				loadingOut(loading);
+			}
+
+			/**
+			 * 横向 无标题
+			 * @author 	c
+			 * @date 	2017-11-05
+			 * @version 1.0.0
+			 * @return {void} 
+			 */
+			function horizontalNoTitle() {
+
+				var loading = new Loading({
+					direction: 'hor',
+					discription: '请稍等..努力加载中',
+			    	defaultApply: 	true,
+				});
+
+				loadingOut(loading);
+			}
+
+			/**
+			 * 无过度动画
+			 * @author 	c
+			 * @date 	2017-11-05
+			 * @version 1.0.0
+			 * @return {void} 
+			 */
+			function noTransitionAnimation() {
+				var loading = new Loading({
+					direction: 'hor',
+					discription: '请稍等..正在加载中...',
+					animationIn: false,
+					animationOut: false,
+			    	defaultApply: 	true,
+				});
+
+				loadingOut(loading);
+			}
+
+		</script>
+	</body>
+</html>
